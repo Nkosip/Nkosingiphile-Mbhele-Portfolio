@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website - Easy Tutorials</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="images/logo.png" class="logo">
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <i class="fas fa-times" onclick="closemenu()"></i>
+            </ul>
+            <i class="fas fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+            <p>Developer</p>
+            <h1>Hi, I'm <span>Nkosingiphile</span><br>Mbhele From South Africa</h1>
+        </div>
+    </div>
+</div>
+<!-- -----------about---------- -->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/user.png">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>Hello! I am Nkosingiphile, an aspiring software developer currently pursuing my Honours in IT and Information Systems. My passion for technology and problem-solving drives me to explore innovative solutions and continuously enhance my skills in software development.
+
+Throughout my academic journey, I have immersed myself in various programming languages and technologies, including Java, OOP, Data Structures & Algorithms, SDLC, Spring Core, Spring Boot, Databases, and Web Design. I enjoy tackling complex challenges and am particularly interested in Java Development and Programming.
+
+In addition to my technical pursuits, I am a proactive learner who loves collaborating with peers on projects that make a difference. My goal is to leverage my knowledge and skills to create impactful software solutions that improve everyday life and drive business success.
+
+When I'm not coding, you can find me reading tech blogs, participating in hackathons, or exploring new tech trends. I believe in the power of technology to transform the world, and I am excited to be part of this dynamic and ever-evolving field.
+
+Feel free to connect with me to discuss technology, collaboration opportunities, or just to share insights on the latest in the tech world!</p>
+
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>UI/UX</span><br>Designing Web/App interfaces</li>
+                        <li><span>Web Development</span><br>Web app Development</li>
+                        <li><span>App Development</span><br>Building Android/iOS apps</li>
+						<li><span>System Development</span><br>System Development</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>2024 - 2024</span><br>Java Intern at Oasis Infobyte</li>
+                        <li><span>2022 - 2023</span><br>IT Audit Trainee at FNB</li>
+                        <li><span>2017 - 2020</span><br>Comp Science and IT Student at UKZN</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>2024</span><br>BCom Hons IS&T from University of KwaZulu-Natal (UKZN)</li>
+                        <li><span>2020</span><br>BSc Computer Science & IT from University of KwaZulu-Natal (UKZN)</li>
+                        <li><span>2016</span><br>Matric Cert from Wentworth Secondary</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ---------services---------------- -->
+<div id="services">
+    <div class="container">
+        <h1 class="sub-title">My Services</h1>
+        <div class="services-list">
+            <div>
+                <i class="fas fa-code"></i>
+                <h2>Web Design</h2>
+                <p>I offer a Web Design service that creates visually stunning and highly functional websites reflecting your brand's identity. I ensure your site is responsive, SEO-optimized, and easy to manage, providing a seamless experience for your visitors. With custom designs tailored to your brand, responsive layouts that work on all devices, SEO-friendly features for higher search rankings, user-friendly content management systems, and secure e-commerce solutions, I deliver websites that make a lasting impression.</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fas fa-crop-alt"></i>
+                <h2>UI/UX Design</h2>
+                <p>I provide a UI/UX Design service focused on crafting user-friendly and visually appealing interfaces. I enhance user satisfaction by designing intuitive and engaging experiences that keep your audience coming back. By putting your users at the center of the design process, staying updated with the latest design trends and technologies, working closely with you to meet your expectations, paying meticulous attention to detail, and making continuous improvements based on user feedback, I create designs that truly resonate with your audience.</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fab fa-app-store"></i>
+                <h2>App Design</h2>
+                <p>I develop sleek, functional, and engaging mobile applications through my App Design service. I prioritize performance and usability to create apps that users will love and rely on. With extensive experience in app development, a strong focus on user experience, the integration of modern features and technologies, timely project delivery, and ongoing post-launch support, I ensure that your app stands out in the competitive market and continues to perform seamlessly.</p>
+                <a href="#">Learn more</a>
+            </div>
+			<div>
+			    <i class="fab fa-app-store"></i>
+				<h2>System Design</h2>
+				<p>I specialize in creating robust, scalable, and efficient systems tailored to your business needs through my System Design service. I focus on the big picture, ensuring all components of your system work harmoniously together. From architecture planning to implementation, I handle everything to provide a seamless and integrated solution. With my expertise in designing complex systems, I ensure reliability, performance, and security, enabling your business to operate smoothly and efficiently. Whether you need a new system built from scratch or an existing system optimized, I deliver solutions that support your long-term goals.</p>
+				<a href="#">Learn more</a>
+			</div>
+        </div>
+    </div>
+</div>
+<!-- ----------portfolio------------ -->
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Work</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="images/work-1.png">
+                <div class="layer">
+                    <h3>Medical System</h3>
+                    <p>An ASP.NET MVC project developed for managing patient files, presented as part of an academic defense at UKZN Medical School. This system includes features for uploading, storing, and retrieving patient documents securely.</p>
+                    <a href="https://github.com/Nkosip/Medical-System"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work-2.png">
+                <div class="layer">
+                    <h3>Patient File Management API</h3>
+                    <p>APIs for managing patient files in a medical system. These APIs provide basic file functionalities, such as uploading and downloading files to and from Azure Blob Storage. They are designed to handle the storage and retrieval of patient-related documents securely and efficiently</p>
+                    <a href="https://github.com/Nkosip/Patient-File-Management-API"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work-3.png">
+                <div class="layer">
+                    <h3>Registration-Login System</h3>
+                    <p>Registration login system</p>
+                    <a href="https://github.com/Nkosip/registration-login-system"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="https://github.com/Nkosip" class="btn">See more</a>
+    </div>
+</div>
+<!-- ----------contact------------- -->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fas fa-paper-plane"></i> 217010094@gmail.com</p>
+                <p><i class="fas fa-phone-square-alt"></i> 0613674152</p>
+                <div class="social-icons">
+                    <a href="https://facebook.com/"><i class="fab fa-facebook"></i></a>
+                    <a href=""><i class="fab fa-twitter-square"></i></a>
+                    <a href=""><i class="fab fa-instagram"></i></a>
+                    <a href=""><i class="fab fa-linkedin"></i></a>
+                </div>
+                <a href="images/my-cv.pdf" download class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright © Nkosingiphile. Made with love</p>
+    </div>
+</div>
+
+
+
+<script>
+
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+</script>
+
+<script>
+
+    var sidemeu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemeu.style.right = "0";
+    }
+    function closemenu(){
+        sidemeu.style.right = "-200px";
+    }
+
+</script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyKuXsxNofVrooYTT1ZiA8WpJJ4dvaz8P2yVmnQzm0hiw0Vsu8H0_DkEMG9hLPui0sY/exec' // add your own app script link here
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
