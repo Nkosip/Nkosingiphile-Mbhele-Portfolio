@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Bookings Data Analysis Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        section {
+            margin-bottom: 40px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #004080;
+        }
+        a {
+            color: #004080;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #004080;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Hotel Bookings Data Analysis Demo</h1>
+</header>
+
+<main>
+    <section>
+        <h2>Demo Overview and Instructions</h2>
+        <p>This demo showcases the basic data analysis of a hotel bookings dataset using <strong>R</strong>. 
+           The objective is to demonstrate key statistical techniques, data visualization, and insights extraction, which are essential in analyzing customer behavior.</p>
+        <p>The dataset includes variables such as lead time, market segments, meal plans, and room types. The analysis focuses on understanding patterns in customer bookings. Key visualizations include:</p>
+        <ul>
+            <li>Box plots for identifying outliers and data spread.</li>
+            <li>Histograms for analyzing booking lead times.</li>
+            <li>Bar plots for exploring market segments and room preferences.</li>
+            <li>Pie charts for visualizing meal plan selections.</li>
+        </ul>
+        <p>These visualizations help identify trends such as the preference for Room Type 1 and Meal Plan 1, the importance of online and offline channels, and the tendency for most bookings to be made within 100 days of the check-in date.</p>
+        <p><strong>Opportunities for hotels</strong> include adjusting promotions based on lead times and focusing marketing efforts on the most popular booking channels and room types. Future work could extend the analysis to predictive modeling or inferential statistics.</p>
+        <p><strong>How to View the Demo:</strong> The video demo showcases the code execution and visualizations using RStudio. You can view the demo by following this 
+           <a href="https://drive.google.com/file/d/1nfYcrw0RRtp1yEMVcw11CzrlXYzfov7M/view?usp=sharing" target="_blank">link to the video</a>. Make sure to have your audio enabled, as I provide a detailed narration throughout the presentation.</p>
+    </section>
+
+    <section>
+        <h2>Development Steps (Code)</h2>
+        <pre><code># Install necessary packages (if not already installed)
+install.packages(c("dplyr", "ggplot2", "scales", "knitr", "gridExtra", "psych"))
+
+# Load necessary packages
+library(dplyr)       # For data manipulation
+library(ggplot2)     # For data visualization
+library(gridExtra)   # For arranging multiple plots together
+library(readxl)      # For reading Excel files
+
+# Attach the dataset
+hotel_data <- read_excel("C:/Users/OIBSIP/ISTN732/hotel_bookings.xlsx")
+attach(hotel_data)
+
+# View the structure of the dataset
+str(hotel_data)
+
+# 1. Descriptive Statistics ----------------------------------------------
+
+# Calculate summary statistics (quartile 1, quartile 2, quartile 3, mean, and median) for 'lead time'
+summary(hotel_data$lead_time)
+# Calculate standard deviation for 'lead time'
+sd(hotel_data$lead_time)
+# Calculate interquatile range for 'lead time'
+IQR(hotel_data$lead_time)
+
+# Function to calculate mode
+calculate_mode <- function(x) {
+  unique_val <- unique(x)
+  unique_val[which.max(tabulate(match(x, unique_val)))]
+}
+mode_lead_time <- calculate_mode(hotel_data$lead_time)
+cat("Mode of lead_time:", mode_lead_time, "\n")
+
+# Market segment frequency and percentage
+market_freq <- hotel_data %>%
+  group_by(market_segment) %>%
+  summarise(Count = n()) %>%
+  mutate(Percentage = round((Count / sum(Count)) * 100, 2))
+print(market_freq)
+
+# 2. Data Visualization ---------------------------------------------------
+
+# Box plot for Lead Time
+box_plot_lead_time <- ggplot(hotel_data, aes(y = lead_time)) +
+  geom_boxplot() + labs(title = "Boxplot of Lead Time")
+print(box_plot_lead_time)
+
+# Bar plot for Market Segments
+plot_market_segment <- ggplot(hotel_data, aes(x = market_segment, fill = market_segment)) +
+  geom_bar() + labs(title = "Distribution of Market Segments", 
+                   x = "Market Segment", y = "Frequency") +
+  theme_minimal() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Histogram for Lead Time
+plot_lead_time <- ggplot(hotel_data, aes(x = lead_time)) +
+  geom_histogram(binwidth = 10, fill = "steelblue", color = "black") +
+  labs(title = "Distribution of Lead Time", x = "Lead Time (Days)", y = "Frequency") +
+  theme_minimal()
+
+# Pie chart for Meal Plans
+meal_plan_freq <- hotel_data %>%
+  group_by(meal_plan) %>% summarize(Count = n())
+plot_meal_plan <- ggplot(meal_plan_freq, aes(x = "", y = Count, fill = meal_plan)) +
+  geom_bar(stat = "identity", width = 1) + coord_polar("y", start = 0) +
+  labs(title = "Distribution of Meal Plans") + theme_void()
+
+# Bar plot for Room Types
+plot_room_type <- ggplot(hotel_data, aes(x = room_type, fill = room_type)) +
+  geom_bar() + labs(title = "Distribution of Room Types", 
+                   x = "Room Type", y = "Frequency") +
+  theme_minimal()
+
+# 3. Arrange and Display Plots Together -----------------------------------
+grid.arrange(plot_market_segment, plot_lead_time, plot_meal_plan, plot_room_type, ncol = 2)
+
+# 4. Detach the Dataset ---------------------------------------------------
+detach(hotel_data)
+        </code></pre>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Hotel Data Analysis Demo. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
